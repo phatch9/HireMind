@@ -1,4 +1,4 @@
-# Apply.come — Agent Instructions & Development Preferences
+# HireMind — Agent Instructions & Development Preferences
 
 > This file is the single source of truth for any AI agent or developer working on this codebase.
 > Read it fully before writing any code.
@@ -7,18 +7,22 @@
 
 ## 1. Project Identity
 
-**Apply.come** is a full-stack job application tracking system. It is the *UI layer* for a broader job-search workflow that includes AI-powered job evaluation, CV tailoring, batch processing, and portal scanning. The stack is:
+This project is a full-stack job application tracking system. It is the *UI layer* for a broader job-search workflow that includes AI-powered job evaluation, CV tailoring, batch processing, and portal scanning. The stack is:
 
 | Layer | Technology |
 |-------|------------|
 | Frontend | React 18 + TypeScript (strict) |
 | Build | Vite |
 | Backend | Supabase (PostgreSQL + Auth + Realtime + Storage) |
+| API Engine Layer | Python FastAPI, PyMuPDF, OpenAI Structured Outputs API |
 | Styling | Vanilla CSS with CSS custom properties (NO Tailwind) |
 | Routing | React Router v6 |
 | Drag & Drop | react-beautiful-dnd |
 | Date utilities | date-fns |
+| Containerization & Deployment | Docker |
+| Analytics & Integrations | Google Analytics, and browser APIs for its Chrome Extension |
 
+Core Engine | Proprietary algorithms based on reverse-engineering top ATS platforms (like Taleo, Workday, Lever, and Greenhouse) combined with Large Language Models (LLMs) for its generative AI features.
 ---
 
 ## 2. Architecture Principles
@@ -144,7 +148,6 @@ Light theme overrides live in `.light {}`.
 // 6. Event handlers (useCallback if passed to children)
 // 7. Return JSX
 ```
-
 ---
 
 ## 7. Supabase Patterns
@@ -195,7 +198,7 @@ When displaying `fit_grade`:
 ## 9. File Organization Reference
 
 ```
-Apply.come/
+HireMind/
 ├── CLAUDE.md                    ← You are here
 ├── docs/
 │   ├── SYSTEM_ARCHITECTURE.md
@@ -262,3 +265,7 @@ Apply.come/
 - ❌ Do not use `any` type
 - ❌ Do not put data-fetching logic inside components — use hooks
 - ❌ Do not create new color values outside the CSS token system
+- ❌ Do not modify `src/lib/supabase.ts` (it is imported by many files)
+- ❌ Do not add new Supabase tables without updating `DATABASE_SETUP.md` and creating a new migration
+- 
+
