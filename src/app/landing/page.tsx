@@ -5,7 +5,7 @@ export default function LandingPage() {
         <div className="landing-container">
             <nav className="landing-nav glass-card">
                 <div className="logo">
-                    <h1>Apply.come</h1>
+                    <h1>HireMind</h1>
                 </div>
                 <div className="nav-links">
                     <Link to="/auth/login" className="btn btn-ghost">Login</Link>
