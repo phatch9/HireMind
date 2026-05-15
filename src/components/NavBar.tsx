@@ -51,16 +51,34 @@ export default function NavBar() {
                             Applications
                         </Link>
                         <Link
+                            to="/kanban"
+                            className={`nav-link ${isActive('/kanban') ? 'active' : ''}`}
+                        >
+                            Kanban
+                        </Link>
+                        <Link
                             to="/companies"
                             className={`nav-link ${isActive('/companies') ? 'active' : ''}`}
                         >
                             Companies
                         </Link>
                         <Link
-                            to="/documents"
-                            className={`nav-link ${isActive('/documents') ? 'active' : ''}`}
+                            to="/reminders"
+                            className={`nav-link ${isActive('/reminders') ? 'active' : ''}`}
                         >
-                            Documents
+                            Reminders
+                        </Link>
+                        <Link
+                            to="/analytics"
+                            className={`nav-link ${isActive('/analytics') ? 'active' : ''}`}
+                        >
+                            Analytics
+                        </Link>
+                        <Link
+                            to="/ats"
+                            className={`nav-link ${isActive('/ats') ? 'active' : ''}`}
+                        >
+                            ATS Analyzer
                         </Link>
                     </div>
 
@@ -95,8 +113,11 @@ export default function NavBar() {
                                 <DropdownMenuContent align="end">
                                     <DropdownMenuItem onSelect={() => navigate('/dashboard')}>Dashboard</DropdownMenuItem>
                                     <DropdownMenuItem onSelect={() => navigate('/applications')}>Applications</DropdownMenuItem>
+                                    <DropdownMenuItem onSelect={() => navigate('/kanban')}>Kanban</DropdownMenuItem>
                                     <DropdownMenuItem onSelect={() => navigate('/companies')}>Companies</DropdownMenuItem>
-                                    <DropdownMenuItem onSelect={() => navigate('/documents')}>Documents</DropdownMenuItem>
+                                    <DropdownMenuItem onSelect={() => navigate('/reminders')}>Reminders</DropdownMenuItem>
+                                    <DropdownMenuItem onSelect={() => navigate('/analytics')}>Analytics</DropdownMenuItem>
+                                    <DropdownMenuItem onSelect={() => navigate('/ats')}>ATS Analyzer</DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
                         </div>

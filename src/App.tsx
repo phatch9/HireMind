@@ -8,6 +8,9 @@ import ApplicationsPage from './app/applications/page';
 import CompaniesPage from './app/companies/page';
 import LandingPage from './app/landing/page';
 import AuthCallbackPage from './app/auth/callback/page';
+import AnalyticsPage from './app/analytics/page';
+import RemindersPage from './app/reminders/page';
+import AtsPage from './app/ats/page';
 
 function ProtectedRoute() {
     const { user, loading } = useAuth();
@@ -66,6 +69,9 @@ function AppRoutes() {
                 <Route path="/kanban" element={<KanbanPage />} />
                 <Route path="/applications" element={<ApplicationsPage />} />
                 <Route path="/companies" element={<CompaniesPage />} />
+                <Route path="/analytics" element={<AnalyticsPage />} />
+                <Route path="/reminders" element={<RemindersPage />} />
+                <Route path="/ats" element={<AtsPage />} />
             </Route>
 
             {/* Catch all */}
