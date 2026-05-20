@@ -116,3 +116,45 @@ export interface DashboardStats {
     offer: number;
     rejected: number;
 }
+
+// ─── ATS Analysis types ───────────────────────────────────────────────────────
+
+/**
+ * Response shape returned by POST /analyze on the FastAPI backend.
+ * Mirrors models/schemas.py :: AnalyzeResponse.
+ */
+export interface AtsAnalysisResponse {
+    match_score: number;            // 0–100
+    missing_keywords: string[];
+    present_keywords: string[];
+    recommendations: string[];
+    summary: string;
+    resume_char_count: number;
+    model_used: string;
+    evaluation_version: string;
+}
+
+/**
+ * Persisted record in the ats_evaluations Supabase table.
+ */
+export interface AtsEvaluationRecord {
+    id: string;
+    user_id: string;
+    application_id?: string;
+    resume_filename?: string;
+    match_score: number;
+    missing_keywords: string[];
+    present_keywords: string[];
+    recommendations: string[];
+    summary: string;
+    model_used: string;
+    evaluation_version: string;
+    created_at: string;
+}
+
+/** Input to the useAtsEvaluation hook's analyze() function. */
+export interface AtsAnalysisInput {
+    resumeFile: File;
+    jobDescription: string;
+    applicationId?: string;
+}
