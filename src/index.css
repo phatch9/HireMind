@@ -66,55 +66,62 @@ body {
   --z-tooltip: 1070;
 }
 
-/* Dark Theme (Default) */
+/* Light Theme (Default - Inspired by Jobscan) */
 :root {
-  --bg-primary: hsl(220, 25%, 10%);
-  --bg-secondary: hsl(220, 20%, 14%);
-  --bg-tertiary: hsl(220, 18%, 18%);
+  --bg-primary: #ffffff;
+  --bg-secondary: hsl(220, 40%, 97%);
+  --bg-tertiary: hsl(220, 35%, 94%);
 
-  --text-primary: hsl(0, 0%, 95%);
-  --text-secondary: hsl(0, 0%, 70%);
+  --text-primary: hsl(220, 30%, 15%);
+  --text-secondary: hsl(220, 15%, 40%);
+  --text-tertiary: hsl(220, 10%, 60%);
+
+  --accent-primary: hsl(270, 90%, 55%);
+  /* Vibrant Purple */
+  --accent-secondary: hsl(210, 95%, 50%);
+  /* Vibrant Blue */
+  --accent-success: hsl(150, 85%, 45%);
+  --accent-warning: hsl(40, 95%, 55%);
+  --accent-error: hsl(0, 85%, 55%);
+
+  /* Glassmorphism Light */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.08);
+  --glass-blur: 10px;
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 8px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 30px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Theme (Night Mode) */
+.dark {
+  --bg-primary: hsl(220, 25%, 9%);
+  --bg-secondary: hsl(220, 22%, 13%);
+  --bg-tertiary: hsl(220, 20%, 17%);
+
+  --text-primary: hsl(0, 0%, 97%);
+  --text-secondary: hsl(0, 0%, 72%);
   --text-tertiary: hsl(0, 0%, 50%);
 
-  --accent-primary: hsl(280, 100%, 65%);
-  --accent-secondary: hsl(210, 100%, 60%);
+  --accent-primary: hsl(270, 100%, 68%);
+  --accent-secondary: hsl(210, 100%, 62%);
   --accent-success: hsl(140, 100%, 45%);
   --accent-warning: hsl(45, 100%, 60%);
   --accent-error: hsl(0, 80%, 60%);
 
-  /* Glassmorphism */
+  /* Glassmorphism Dark */
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --glass-blur: 12px;
-}
-
-/* Light Theme */
-.light {
-  --bg-primary: hsl(220, 30%, 98%);
-  --bg-secondary: hsl(220, 25%, 94%);
-  --bg-tertiary: hsl(220, 20%, 90%);
-
-  --text-primary: hsl(220, 25%, 10%);
-  --text-secondary: hsl(220, 20%, 30%);
-  --text-tertiary: hsl(220, 15%, 50%);
-
-  --accent-primary: hsl(280, 80%, 60%);
-  --accent-secondary: hsl(210, 90%, 50%);
-  --accent-success: hsl(140, 80%, 40%);
-  --accent-warning: hsl(45, 90%, 50%);
-  --accent-error: hsl(0, 70%, 55%);
-
-  /* Glassmorphism Light */
-  --glass-bg: rgba(255, 255, 255, 0.6);
-  --glass-border: rgba(0, 0, 0, 0.05);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   --glass-blur: 12px;
 
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
 }
 
 /* ===================================
