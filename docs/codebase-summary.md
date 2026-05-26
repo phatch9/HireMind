@@ -17,7 +17,7 @@ Apply.come is a modern job application tracking system built with React, TypeScr
 ## Project Structure
 
 ```
-Apply.come/
+HireMind/
 ├── docs/                      # Documentation
 │   ├── DATABASE_SETUP.md     # Database schema and setup
 │   ├── code-standards.md     # Coding guidelines

@@ -1,6 +1,6 @@
-# Apply.come Database Setup
+# Database Setup
 
-This document describes the database schema and setup instructions for the Apply.come application.
+This document describes the database schema and setup instructions for the HireMind application.
 
 ## Database Schema
 

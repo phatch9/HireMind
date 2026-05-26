@@ -1,4 +1,4 @@
-# Apply.come
+# HireMind
 
 ## TypeScript Guidelines
 

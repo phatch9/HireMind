@@ -8,5 +8,5 @@ $ARGUMENTS
 
 Load the job-env skill:
 ```
-skill({ name: "job-env" })
+skill({ name: "HireMind" })
 ```
