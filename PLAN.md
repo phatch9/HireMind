@@ -1,6 +1,6 @@
 # PLAN.md: AI Resume Optimizer & Application Tracker Execution Blueprint
 
-## 🏛️ System Architecture Target
+## System Architecture Target
 A robust SaaS application architecture built to demonstrate high technical competency to recruiters.
 - **Frontend Layer:** Next.js 15 (App Router), Tailwind CSS, Shadcn UI components.
 - **API Engine Layer:** Python FastAPI, PyMuPDF, OpenAI Structured Outputs API.
@@ -8,7 +8,7 @@ A robust SaaS application architecture built to demonstrate high technical compe
 
 ---
 
-## 🛑 Operational Rules & Code Quality Standards
+## Operational Rules & Code Quality Standards
 
 To ensure production-grade maintainability, the Code Agent must adhere to these compliance rules:
 
@@ -82,9 +82,9 @@ Re-read all criteria and confirm each item has been met.
 
 **— FINAL DELIVERABLE —**
 
-✅ Confirm each criterion is met
-📁 List of newly created / modified files
-🚀 How to run / test / deploy
-📊 Evidence (screenshot · test output · URL)
-📝 Important decisions + things to know
-⚠️ Current limitations + follow-up directions
+- Confirm each criterion is met
+- List of newly created / modified files
+- How to run / test / deploy
+- Evidence (screenshot · test output · URL)
+- Important decisions + things to know
+- Current limitations + follow-up directions

@@ -1,8 +1,8 @@
-# Apply.come - System Architecture
+# HireMind - System Architecture
 
 ## Overview
 
-Apply.come is a full-stack job application tracking system built with a modern serverless architecture using React for the frontend and Supabase for the backend.
+HireMind is a full-stack job application tracking system built with a modern serverless architecture using React for the frontend and Supabase for the backend.
 
 ## Architecture Diagram
 
