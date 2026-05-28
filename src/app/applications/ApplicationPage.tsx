@@ -4,7 +4,7 @@ import { Application, ApplicationStatus } from '@/lib/types';
 import { STATUS_LABELS, STATUS_COLORS, STATUS_ICONS } from '@/lib/constants';
 import { format } from 'date-fns';
 import ApplicationForm from '@/components/ApplicationForm';
-import ApplicationDetailModal from '@/components/applications/ApplicationDetailModal';
+import ApplicationDetailModal from '@/components/YourApplication/ApplicationDetailModal';
 
 export default function ApplicationsPage() {
   const { applications, deleteApplication, loading } = useApplications();
@@ -24,12 +24,12 @@ export default function ApplicationsPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm('Are you sure you want to delete this application?')) {
+    if (confirm('Are you sure to remove this application?')) {
       try {
         await deleteApplication(id);
       } catch (error) {
-        console.error('Failed to delete application:', error);
-        alert('Failed to delete application');
+        console.error('Failed to remove application:', error);
+        alert('Failed to remove application');
       }
     }
   };

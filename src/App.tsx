@@ -2,18 +2,18 @@ import React, { Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { AuthProvider, useAuth } from './hooks/useAuth.tsx';
 import AuthForm from './components/AuthForm';
-import Layout from './app/layout';
-import LandingPage from './app/landing/page';
-import AuthCallbackPage from './app/auth/callback/page';
+import Layout from './app/MainLayout.tsx';
+import LandingPage from './app/landing/LandingPage.tsx';
+import AuthCallbackPage from './app/auth/callback/callback.tsx';
 
 // Lazy load non-critical routes for better performance
-const DashboardPage = React.lazy(() => import('./app/page'));
-const KanbanPage = React.lazy(() => import('./app/kanban/page'));
-const ApplicationsPage = React.lazy(() => import('./app/applications/page'));
-const CompaniesPage = React.lazy(() => import('./app/companies/page'));
-const AnalyticsPage = React.lazy(() => import('./app/analytics/page'));
-const RemindersPage = React.lazy(() => import('./app/reminders/page'));
-const AtsPage = React.lazy(() => import('./app/ats/page'));
+const DashboardPage = React.lazy(() => import('./app/Dashboard.tsx'));
+const KanbanPage = React.lazy(() => import('./app/kanban/Kanban.tsx'));
+const ApplicationsPage = React.lazy(() => import('./app/applications/ApplicationPage.tsx'));
+const CompaniesPage = React.lazy(() => import('./app/companies/CompaniesLayout.tsx'));
+const AnalyticsPage = React.lazy(() => import('./app/analytics/Analytics.tsx'));
+const RemindersPage = React.lazy(() => import('./app/reminders/Reminder.tsx'));
+const AtsPage = React.lazy(() => import('./app/ATS/LayoutATS.tsx'));
 
 function ProtectedRoute() {
     const { user, loading } = useAuth();
