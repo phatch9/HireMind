@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build validation script for Apply.come
+# Build validation script for HireMind
 # Catches common issues before deployment
 
 set -e  # Exit on any error
@@ -160,4 +160,4 @@ else
     echo -e "${RED}✗ Some validations failed${NC}"
     echo "Please fix the issues above before deploying"
     exit 1
-if   
+if
