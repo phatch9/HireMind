@@ -8,7 +8,7 @@ import {
     DropdownMenuTrigger,
     DropdownStyles,
     DropdownMenuSeparator,
-} from '@/components/ui/DropdownMenu';
+} from '@/components/UI/DropdownMenu';
 import { PersonIcon, HamburgerMenuIcon } from '@radix-ui/react-icons';
 
 export default function NavBar() {
