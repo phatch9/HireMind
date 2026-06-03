@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { applicationsApi } from '../../lib/api/applications';
+import { applicationsApi } from '../../lib/api/Application';
 import { supabase } from '../../lib/supabase';
 
 // Mock Supabase client

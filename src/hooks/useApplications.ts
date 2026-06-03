@@ -7,7 +7,7 @@ import {
     ApplicationUpdatePayload,
 } from '@/lib/types';
 import { useAuth } from './useAuth.tsx';
-import { applicationsApi } from '@/lib/api/applications';
+import { applicationsApi } from '@/lib/api/Application.ts';
 
 export function useApplications() {
     const { user } = useAuth();
