@@ -27,8 +27,8 @@ body {
 }
 
 /* ===================================
-   CSS CUSTOM PROPERTIES - THEME
-   =================================== */
+  CSS PROPERTIES - THEME
+=================================== */
 
 :root {
   /* Spacing */
@@ -121,8 +121,8 @@ body {
 }
 
 /* ===================================
-   ANIMATED MESH BACKGROUND
-   =================================== */
+  ANIMATED MESH BACKGROUND
+=================================== */
 
 .mesh-background {
   position: fixed;
@@ -189,8 +189,8 @@ body {
 }
 
 /* ===================================
-   GLASSMORPHISM UTILITIES
-   =================================== */
+  GLASSMORPHISM UTILITIES
+=================================== */
 
 .glass {
   background: var(--glass-bg);
@@ -217,8 +217,8 @@ body {
 }
 
 /* ===================================
-   TYPOGRAPHY
-   =================================== */
+  TYPOGRAPHY
+=================================== */
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
@@ -257,7 +257,7 @@ a:hover {
 }
 
 /* ===================================
-   BUTTONS
+  BUTTONS
    =================================== */
 
 .btn {
@@ -342,7 +342,7 @@ a:hover {
 }
 
 /* ===================================
-   FORMS
+  FORMS
    =================================== */
 
 .form-group {
@@ -393,7 +393,7 @@ a:hover {
 }
 
 /* ===================================
-   CARDS
+  CARDS
    =================================== */
 
 .card {
@@ -425,7 +425,7 @@ a:hover {
 }
 
 /* ===================================
-   BADGES
+  BADGES
    =================================== */
 
 .badge {
@@ -446,7 +446,7 @@ a:hover {
 .badge-error { background: rgba(239, 68, 68, 0.15); color: var(--accent-error); border: 1px solid rgba(239, 68, 68, 0.3); }
 
 /* ===================================
-   UTILITIES
+  UTILITIES
    =================================== */
 
 .container {
@@ -478,8 +478,8 @@ a:hover {
 .text-tertiary { color: var(--text-tertiary); }
 
 /* ===================================
-   ANIMATIONS
-   =================================== */
+  ANIMATIONS
+=================================== */
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -512,7 +512,7 @@ a:hover {
 .stagger-3 { animation-delay: 300ms; }
 
 /* ===================================
-   SCROLLBAR STYLING
+  SCROLLBAR STYLING
    =================================== */
 
 ::-webkit-scrollbar {
@@ -534,7 +534,7 @@ a:hover {
 }
 
 /* ===================================
-   RESPONSIVE DESIGN
+  RESPONSIVE DESIGN
    =================================== */
 
 @media (max-width: 768px) {
