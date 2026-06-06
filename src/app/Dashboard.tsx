@@ -52,7 +52,6 @@ export default function DashboardPage() {
             </div>
 
             <form className="quick-search glass" onSubmit={handleSearch}>
-              <span className="search-icon">🔍</span>
               <input
                 type="text"
                 placeholder="Quick search applications..."
@@ -154,8 +153,8 @@ export default function DashboardPage() {
 
         .dashboard-layout {
           display: grid;
-          grid-template-columns: 1fr 350px;
-          gap: var(--spacing-xl);
+          grid-template-columns: 1fr 360px;
+          gap: calc(var(--spacing-xl) * 0.9);
         }
 
         .dashboard-header {
@@ -173,16 +172,16 @@ export default function DashboardPage() {
           padding: var(--spacing-sm) var(--spacing-md);
           border-radius: var(--radius-xl);
           width: 100%;
-          max-width: 300px;
+          max-width: 360px;
         }
 
         .quick-search input {
           background: transparent;
           border: none;
-          color: white;
+          color: var(--text-primary);
           width: 100%;
           outline: none;
-          font-size: 0.9rem;
+          font-size: 0.95rem;
         }
 
         .stats-strip {
