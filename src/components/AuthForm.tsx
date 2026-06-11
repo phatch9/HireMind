@@ -199,7 +199,7 @@ export default function AuthForm({ defaultIsSignUp = false }: AuthFormProps) {
           align-items: center;
           justify-content: center;
           padding: var(--spacing-lg);
-          background: linear-gradient(135deg, hsl(220, 25%, 10%) 0%, hsl(280, 30%, 15%) 100%);
+          background: linear-gradient(135deg, hsl(10, 30%, 25%) 0%, hsl(20, 35%, 30%) 100%);
         }
 
         .auth-card {
