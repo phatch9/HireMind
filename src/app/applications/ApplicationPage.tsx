@@ -301,7 +301,7 @@ export default function ApplicationsPage() {
         }
 
         .filter-btn:hover {
-          background: rgba(255, 255, 255, 0.1);
+          background: rgba(200, 90, 58, 0.08);
           color: var(--text-primary);
         }
 
