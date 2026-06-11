@@ -152,7 +152,7 @@ export default function KanbanBoard({
         }
 
         .column-content.dragging-over {
-          background: rgba(168, 85, 247, 0.1);
+          background: rgba(200, 90, 58, 0.08);
         }
 
         .empty-column {

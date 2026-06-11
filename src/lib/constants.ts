@@ -17,11 +17,11 @@ export const STATUS_LABELS: Record<ApplicationStatus, string> = {
 };
 
 export const STATUS_COLORS: Record<ApplicationStatus, string> = {
-    wishlist: 'hsl(210, 100%, 60%)',
-    applied: 'hsl(280, 100%, 65%)',
-    interview: 'hsl(45, 100%, 60%)',
-    offer: 'hsl(140, 100%, 45%)',
-    rejected: 'hsl(0, 80%, 60%)',
+    wishlist: 'hsl(210, 65%, 60%)',
+    applied: 'hsl(18, 65%, 60%)',
+    interview: 'hsl(38, 75%, 60%)',
+    offer: 'hsl(75, 55%, 55%)',
+    rejected: 'hsl(15, 70%, 55%)',
 };
 
 export const STATUS_ICONS: Record<ApplicationStatus, string> = {
