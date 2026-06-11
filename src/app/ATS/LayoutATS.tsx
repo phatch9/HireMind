@@ -293,7 +293,7 @@ export default function LayoutATS() {
                 .spinner-sm {
                     width: 16px;
                     height: 16px;
-                    border: 2px solid rgba(255,255,255,0.3);
+                    border: 2px solid rgba(200,90,58,0.3);
                     border-top-color: white;
                     border-radius: 50%;
                     animation: spin 0.8s linear infinite;
