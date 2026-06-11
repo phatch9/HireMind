@@ -69,7 +69,7 @@ function DonutChart({ slices, size = 180 }: { slices: DonutSlice[]; size?: numbe
     return (
         <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
             {/* background ring */}
-            <circle cx={cx} cy={cy} r={r} fill="none" strokeWidth={stroke} stroke="rgba(255,255,255,0.04)" />
+            <circle cx={cx} cy={cy} r={r} fill="none" strokeWidth={stroke} stroke="rgba(200, 90, 58, 0.1)" />
             {arcs.map((arc) =>
                 arc.fraction > 0 ? (
                     <path
@@ -341,7 +341,7 @@ export default function AnalyticsPage() {
                         <div className="metric-item">
                             <div className="metric-ring" style={{ '--ring-pct': `${stats.successRate}` } as React.CSSProperties}>
                                 <svg viewBox="0 0 80 80" width="80" height="80">
-                                    <circle cx="40" cy="40" r="32" fill="none" strokeWidth="8" stroke="rgba(255,255,255,0.06)" />
+                                    <circle cx="40" cy="40" r="32" fill="none" strokeWidth="8" stroke="rgba(200, 90, 58, 0.1)" />
                                     <circle
                                         cx="40" cy="40" r="32"
                                         fill="none" strokeWidth="8"
@@ -361,7 +361,7 @@ export default function AnalyticsPage() {
                         <div className="metric-item">
                             <div className="metric-ring">
                                 <svg viewBox="0 0 80 80" width="80" height="80">
-                                    <circle cx="40" cy="40" r="32" fill="none" strokeWidth="8" stroke="rgba(255,255,255,0.06)" />
+                                    <circle cx="40" cy="40" r="32" fill="none" strokeWidth="8" stroke="rgba(200, 90, 58, 0.1)" />
                                     <circle
                                         cx="40" cy="40" r="32"
                                         fill="none" strokeWidth="8"
@@ -381,7 +381,7 @@ export default function AnalyticsPage() {
                         <div className="metric-item">
                             <div className="metric-ring">
                                 <svg viewBox="0 0 80 80" width="80" height="80">
-                                    <circle cx="40" cy="40" r="32" fill="none" strokeWidth="8" stroke="rgba(255,255,255,0.06)" />
+                                    <circle cx="40" cy="40" r="32" fill="none" strokeWidth="8" stroke="rgba(200, 90, 58, 0.1)" />
                                     <circle
                                         cx="40" cy="40" r="32"
                                         fill="none" strokeWidth="8"
@@ -401,7 +401,7 @@ export default function AnalyticsPage() {
                         <div className="metric-item">
                             <div className="metric-ring">
                                 <svg viewBox="0 0 80 80" width="80" height="80">
-                                    <circle cx="40" cy="40" r="32" fill="none" strokeWidth="8" stroke="rgba(255,255,255,0.06)" />
+                                    <circle cx="40" cy="40" r="32" fill="none" strokeWidth="8" stroke="rgba(200, 90, 58, 0.1)" />
                                     <circle
                                         cx="40" cy="40" r="32"
                                         fill="none" strokeWidth="8"
@@ -583,7 +583,7 @@ export default function AnalyticsPage() {
                 .monthly-bar-track {
                     flex: 1;
                     width: 100%;
-                    background: rgba(255,255,255,0.04);
+                    background: rgba(200, 90, 58, 0.04);
                     border-radius: var(--radius-sm);
                     display: flex;
                     align-items: flex-end;
@@ -662,7 +662,7 @@ export default function AnalyticsPage() {
                 .bar-track {
                     flex: 1;
                     height: 10px;
-                    background: rgba(255,255,255,0.05);
+                    background: rgba(200, 90, 58, 0.06);
                     border-radius: var(--radius-sm);
                     overflow: hidden;
                 }

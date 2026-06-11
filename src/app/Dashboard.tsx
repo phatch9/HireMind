@@ -52,7 +52,6 @@ export default function DashboardPage() {
             </div>
 
             <form className="quick-search glass" onSubmit={handleSearch}>
-              <span className="search-icon">🔍</span>
               <input
                 type="text"
                 placeholder="Quick search applications..."
@@ -154,8 +153,8 @@ export default function DashboardPage() {
 
         .dashboard-layout {
           display: grid;
-          grid-template-columns: 1fr 350px;
-          gap: var(--spacing-xl);
+          grid-template-columns: 1fr 360px;
+          gap: calc(var(--spacing-xl) * 0.9);
         }
 
         .dashboard-header {
@@ -173,16 +172,16 @@ export default function DashboardPage() {
           padding: var(--spacing-sm) var(--spacing-md);
           border-radius: var(--radius-xl);
           width: 100%;
-          max-width: 300px;
+          max-width: 360px;
         }
 
         .quick-search input {
           background: transparent;
           border: none;
-          color: white;
+          color: var(--text-primary);
           width: 100%;
           outline: none;
-          font-size: 0.9rem;
+          font-size: 0.95rem;
         }
 
         .stats-strip {
@@ -234,7 +233,7 @@ export default function DashboardPage() {
         .funnel-stage {
           position: relative;
           height: 45px;
-          background: rgba(255, 255, 255, 0.03);
+          background: rgba(245, 241, 237, 0.7);
           border-radius: var(--radius-md);
           overflow: hidden;
           display: flex;
@@ -284,13 +283,13 @@ export default function DashboardPage() {
           justify-content: space-between;
           align-items: center;
           padding: var(--spacing-md);
-          background: rgba(255,255,255,0.02);
+          background: rgba(245,241,237,0.6);
           border-radius: var(--radius-md);
           transition: background 0.2s;
         }
 
         .recent-item:hover {
-          background: rgba(255,255,255,0.05);
+          background: rgba(245,241,237,0.8);
         }
 
         .recent-info {
@@ -315,7 +314,7 @@ export default function DashboardPage() {
           flex-direction: column;
           align-items: center;
           text-align: center;
-          background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(59, 130, 246, 0.05));
+          background: linear-gradient(135deg, rgba(200, 90, 58, 0.05), rgba(212, 165, 116, 0.05));
         }
 
         .quote-icon {

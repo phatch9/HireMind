@@ -4,19 +4,16 @@ export default function HowItWorksSection() {
       number: '1',
       title: 'Upload & Import',
       description: 'Add jobs manually or auto-import from job boards. HireMind syncs with your profile.',
-      icon: '📥',
     },
     {
       number: '2',
       title: 'Score & Analyze',
       description: 'AI evaluates each job against your experience. Get instant fit scores and recommendations.',
-      icon: '🤖',
     },
     {
       number: '3',
       title: 'Track & Optimize',
       description: 'Organize applications on your Kanban board. Track interviews, offers, and follow-ups effortlessly.',
-      icon: '🚀',
     },
   ];
 
@@ -34,7 +31,7 @@ export default function HowItWorksSection() {
           {steps.map((step, idx) => (
             <div key={idx} className="step-container">
               <div className="step-card glass-card">
-                <div className="step-icon">{step.icon}</div>
+                {/* icon removed for cleaner layout */}
                 <div className="step-number">{step.number}</div>
                 <h3 className="step-title">{step.title}</h3>
                 <p className="step-description">{step.description}</p>
