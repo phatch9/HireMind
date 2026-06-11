@@ -542,12 +542,12 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(200, 90, 58, 0.2);
-  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(200, 90, 58, 0.35);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* ===================================

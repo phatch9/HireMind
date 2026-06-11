@@ -233,7 +233,7 @@ export default function DashboardPage() {
         .funnel-stage {
           position: relative;
           height: 45px;
-          background: rgba(255, 255, 255, 0.03);
+          background: rgba(245, 241, 237, 0.7);
           border-radius: var(--radius-md);
           overflow: hidden;
           display: flex;
@@ -283,13 +283,13 @@ export default function DashboardPage() {
           justify-content: space-between;
           align-items: center;
           padding: var(--spacing-md);
-          background: rgba(255,255,255,0.02);
+          background: rgba(245,241,237,0.6);
           border-radius: var(--radius-md);
           transition: background 0.2s;
         }
 
         .recent-item:hover {
-          background: rgba(255,255,255,0.05);
+          background: rgba(245,241,237,0.8);
         }
 
         .recent-info {
@@ -314,7 +314,7 @@ export default function DashboardPage() {
           flex-direction: column;
           align-items: center;
           text-align: center;
-          background: linear-gradient(135deg, rgba(168, 85, 247, 0.05), rgba(59, 130, 246, 0.05));
+          background: linear-gradient(135deg, rgba(200, 90, 58, 0.05), rgba(212, 165, 116, 0.05));
         }
 
         .quote-icon {
