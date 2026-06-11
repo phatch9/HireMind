@@ -464,7 +464,7 @@ export default function RemindersPage() {
 
                 .rem-tab:hover {
                     color: var(--text-primary);
-                    background: rgba(255,255,255,0.05);
+                    background: rgba(200,90,58,0.08);
                 }
 
                 .rem-tab.active {
@@ -483,11 +483,11 @@ export default function RemindersPage() {
                     border-radius: 10px;
                     font-size: 0.7rem;
                     font-weight: 700;
-                    background: rgba(255,255,255,0.1);
+                    background: rgba(200,90,58,0.08);
                 }
 
                 .rem-tab.active .tab-count {
-                    background: rgba(255,255,255,0.25);
+                    background: rgba(200,90,58,0.15);
                 }
 
                 .overdue-count {
@@ -610,9 +610,9 @@ export default function RemindersPage() {
                 }
 
                 .due-future {
-                    background: rgba(255,255,255,0.05);
+                    background: rgba(200,90,58,0.06);
                     color: var(--text-tertiary);
-                    border: 1px solid var(--glass-border);
+                    border: 1px solid rgba(200,90,58,0.15);
                 }
 
                 .due-done {
