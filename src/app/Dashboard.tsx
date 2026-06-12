@@ -47,11 +47,11 @@ export default function DashboardPage() {
         <div className="main-col">
           <div className="dashboard-header">
             <div className="welcome-text">
-              <h1>Good evening</h1>
+              <h1 className="page-greeting">Good evening</h1>
               <p className="text-secondary">Updating with your job search today.</p>
             </div>
 
-            <form className="quick-search glass" onSubmit={handleSearch}>
+            <form className="quick-search" onSubmit={handleSearch}>
               <input
                 type="text"
                 placeholder="Quick search applications..."
@@ -165,14 +165,23 @@ export default function DashboardPage() {
           gap: var(--spacing-lg);
         }
 
+        .page-greeting {
+          font-family: var(--font-heading);
+          font-weight: 400;
+          font-size: 1.25rem;
+          color: var(--text-primary);
+        }
+
         .quick-search {
           display: flex;
           align-items: center;
           gap: var(--spacing-sm);
           padding: var(--spacing-sm) var(--spacing-md);
-          border-radius: var(--radius-xl);
+          border-radius: var(--radius-md);
           width: 100%;
           max-width: 360px;
+          background: var(--surface-bg);
+          border: 1px solid var(--surface-border);
         }
 
         .quick-search input {
@@ -181,7 +190,9 @@ export default function DashboardPage() {
           color: var(--text-primary);
           width: 100%;
           outline: none;
-          font-size: 0.95rem;
+          font-family: var(--font-input);
+          font-size: 1.125rem;
+          font-weight: 400;
         }
 
         .stats-strip {
@@ -199,16 +210,14 @@ export default function DashboardPage() {
         }
 
         .stat-label {
-          font-size: 0.8rem;
-          color: var(--text-secondary);
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
           margin-bottom: 4px;
         }
 
         .stat-value {
-          font-size: 2.5rem;
-          font-weight: 800;
+          font-size: 1.25rem;
+          font-weight: 400;
+          font-family: var(--font-heading);
+          color: var(--text-primary);
         }
 
         .text-accent-secondary { color: var(--accent-secondary); }
@@ -233,13 +242,13 @@ export default function DashboardPage() {
         .funnel-stage {
           position: relative;
           height: 45px;
-          background: rgba(245, 241, 237, 0.7);
+          background: var(--surface-bg);
           border-radius: var(--radius-md);
           overflow: hidden;
           display: flex;
           align-items: center;
           padding: 0 var(--spacing-md);
-          border: 1px solid var(--glass-border);
+          border: 1px solid var(--surface-border);
         }
 
         .stage-bar {
@@ -283,13 +292,14 @@ export default function DashboardPage() {
           justify-content: space-between;
           align-items: center;
           padding: var(--spacing-md);
-          background: rgba(245,241,237,0.6);
+          background: var(--surface-bg);
+          border: 1px solid var(--surface-border);
           border-radius: var(--radius-md);
-          transition: background 0.2s;
+          transition: border-color var(--transition-fast);
         }
 
         .recent-item:hover {
-          background: rgba(245,241,237,0.8);
+          border-color: var(--surface-border-strong);
         }
 
         .recent-info {
@@ -314,12 +324,11 @@ export default function DashboardPage() {
           flex-direction: column;
           align-items: center;
           text-align: center;
-          background: linear-gradient(135deg, rgba(200, 90, 58, 0.05), rgba(212, 165, 116, 0.05));
+          background: var(--surface-bg);
         }
 
         .quote-icon {
           font-size: 3rem;
-          font-family: serif;
           color: var(--accent-primary);
           line-height: 1;
           margin-bottom: -1rem;
