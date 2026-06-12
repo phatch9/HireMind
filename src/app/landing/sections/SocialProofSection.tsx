@@ -2,17 +2,17 @@ export default function SocialProofSection() {
   const testimonials = [
     {
       quote: "HireMind saved me hours every week. The AI scoring helped me focus on jobs I'm actually qualified for.",
-      author: 'Sarah Chen',
+      author: 'Sarah',
       role: 'Product Manager',
     },
     {
       quote: "The tailored CVs feature increased my interview rate by 40%. Game changer for my job search.",
-      author: 'Marcus Johnson',
+      author: 'Marco Tran',
       role: 'Senior Engineer',
     },
     {
       quote: "Finally, a tool that understands job hunting. No more spreadsheet chaos.",
-      author: 'Emily Rodriguez',
+      author: 'Tiffany Le',
       role: 'UX Designer',
     },
   ];
@@ -27,10 +27,10 @@ export default function SocialProofSection() {
   }
 
   const stats = [
-    { number: '10K+', label: 'Active Users' },
-    { number: '500K+', label: 'Jobs Analyzed' },
-    { number: '92%', label: 'Success Rate' },
-    { number: '4.8/5', label: 'User Rating' },
+    { number: '200', label: 'Users' },
+    { number: '3K+', label: 'Jobs Analyzed' },
+    { number: '78%', label: 'Success Rate' },
+    { number: '4.7/5', label: 'User Rating' },
   ];
 
   return (
