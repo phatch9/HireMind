@@ -104,8 +104,8 @@ export default function LandingPage() {
         }
 
         /* ========================================
-           HERO SECTION
-           ======================================== */
+          HERO SECTION
+        ======================================== */
 
         .hero-section {
           padding: 6rem 2rem;
@@ -408,8 +408,8 @@ export default function LandingPage() {
         }
 
         /* ========================================
-           SOCIAL PROOF SECTION
-           ======================================== */
+          SOCIAL PROOF SECTION
+        ======================================== */
 
         .social-proof-section {
           padding: 6rem 2rem;
