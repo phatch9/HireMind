@@ -74,7 +74,6 @@ export default function ApplicationsPage() {
           </p>
         </div>
         <button className="btn btn-primary" onClick={() => setIsFormOpen(true)}>
-          <span>➕</span>
           <span>Add Application</span>
         </button>
       </div>
