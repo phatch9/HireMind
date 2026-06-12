@@ -81,7 +81,7 @@ export default function ApplicationsPage() {
 
       {applications.length === 0 ? (
         <div className="empty-state glass-card">
-          <div className="empty-icon">📝</div>
+          <div className="empty-icon"></div>
           <h2>No Applications Yet</h2>
           <p className="text-secondary">
             Start tracking your job applications by adding your first one
@@ -94,7 +94,7 @@ export default function ApplicationsPage() {
         <>
           <div className="filters-bar glass-card">
             <div className="search-box">
-              <span className="search-icon">🔍</span>
+              <span className="search-icon"></span>
               <input
                 type="text"
                 className="search-input"
