@@ -45,12 +45,13 @@ export default function LandingPage() {
           align-items: center;
           padding: 1rem 2rem;
           position: sticky;
-          top: 1rem;
-          margin: 0 1rem;
-          border-radius: 0.5rem;
+          top: 0;
+          margin: 0;
+          border-radius: 0;
           z-index: 100;
-          border: 1px solid rgba(200, 90, 58, 0.15);
-          background: rgba(250, 248, 245, 0.9);
+          border: none;
+          border-bottom: 1px solid var(--surface-border);
+          background: var(--bg-primary);
         }
 
         .landing-nav .logo {
@@ -60,11 +61,7 @@ export default function LandingPage() {
         }
 
         .landing-nav h1 {
-          font-size: 1.5rem;
-          font-weight: 700;
           margin: 0;
-          font-family: 'Georgia', serif;
-          color: var(--accent-primary);
         }
 
         .nav-links {
@@ -76,15 +73,13 @@ export default function LandingPage() {
         }
 
         .nav-link {
-          color: var(--text-secondary);
           text-decoration: none;
-          font-weight: 500;
-          transition: color var(--transition-base);
+          transition: color var(--transition-fast);
           cursor: pointer;
         }
 
         .nav-link:hover {
-          color: var(--accent-primary);
+          color: var(--text-primary);
         }
 
         @media (max-width: 768px) {
@@ -138,11 +133,12 @@ export default function LandingPage() {
         }
 
         .hero-title {
-          font-size: clamp(2rem, 5vw, 3.5rem);
-          line-height: 1.2;
+          font-size: clamp(1.75rem, 5vw, 2.5rem);
+          line-height: 1.3;
           margin-bottom: 1.5rem;
-          font-weight: 800;
-          letter-spacing: -0.02em;
+          font-weight: 400;
+          font-family: var(--font-heading);
+          color: var(--text-primary);
         }
 
         .hero-subtitle {
@@ -178,34 +174,26 @@ export default function LandingPage() {
           flex-direction: column;
           gap: 1.5rem;
           max-width: 400px;
-          transform: rotate(-3deg);
-          transition: transform var(--transition-base);
-        }
-
-        .hero-visual:hover {
-          transform: rotate(0deg) scale(1.02);
         }
 
         .mock-card {
-          background: rgba(250, 248, 245, 0.7);
-          border: 1px solid rgba(200, 90, 58, 0.2);
+          background: var(--surface-bg);
+          border: 1px solid var(--surface-border);
           border-radius: var(--radius-md);
           padding: 1.5rem;
           position: relative;
-          transition: all var(--transition-base);
+          transition: border-color var(--transition-fast);
         }
 
         .mock-card:hover {
-          border-color: var(--accent-primary);
-          background: rgba(250, 248, 245, 0.9);
-          transform: translateY(-2px);
+          border-color: var(--surface-border-strong);
         }
 
         .mock-card h3 {
           margin: 0.5rem 0 0.25rem;
           font-size: 1.1rem;
           font-weight: 600;
-          font-family: 'Georgia', serif;
+          font-family: var(--font-heading);
         }
 
         .mock-card p {
@@ -253,10 +241,7 @@ export default function LandingPage() {
         }
 
         .section-title {
-          font-size: clamp(2rem, 4vw, 3rem);
-          font-weight: 800;
           margin-bottom: 1rem;
-          letter-spacing: -0.02em;
         }
 
         .section-subtitle {
@@ -273,7 +258,6 @@ export default function LandingPage() {
 
         .features-section {
           padding: 6rem 2rem;
-          background: linear-gradient(180deg, transparent, rgba(99, 102, 241, 0.05));
         }
 
         .features-grid {
@@ -285,18 +269,16 @@ export default function LandingPage() {
         .feature-card {
           padding: 2rem;
           border-radius: var(--radius-md);
-          transition: all var(--transition-base);
+          transition: border-color var(--transition-fast);
           display: flex;
           flex-direction: column;
           gap: 1rem;
-          border: 1px solid rgba(200, 90, 58, 0.2);
-          background: rgba(250, 248, 245, 0.7);
+          border: 1px solid var(--surface-border);
+          background: var(--surface-bg);
         }
 
         .feature-card:hover {
-          border-color: var(--accent-primary);
-          transform: translateY(-4px);
-          background: rgba(250, 248, 245, 0.9);
+          border-color: var(--surface-border-strong);
         }
 
         .feature-icon {
@@ -307,9 +289,8 @@ export default function LandingPage() {
         .feature-title {
           font-size: 1.25rem;
           font-weight: 600;
-          font-family: 'Georgia', serif;
-        }
           margin: 0;
+          font-family: var(--font-heading);
         }
 
         .feature-description {
@@ -354,17 +335,15 @@ export default function LandingPage() {
         .step-card {
           width: 100%;
           padding: 2rem;
-          border-radius: var(--radius-xl);
+          border-radius: var(--radius-md);
           text-align: center;
-          border: 1px solid rgba(200, 90, 58, 0.2);
-          background: rgba(250, 248, 245, 0.7);
-          transition: all var(--transition-base);
+          border: 1px solid var(--surface-border);
+          background: var(--surface-bg);
+          transition: border-color var(--transition-fast);
         }
 
         .how-it-works-card:hover {
-          border-color: var(--accent-primary);
-          background: rgba(250, 248, 245, 0.9);
-          transform: translateY(-2px);
+          border-color: var(--surface-border-strong);
         }
 
         .step-number {
@@ -373,9 +352,10 @@ export default function LandingPage() {
           justify-content: center;
           width: 3rem;
           height: 3rem;
-          border-radius: 0.5rem;
-          background: var(--accent-primary);
-          color: white;
+          border-radius: var(--radius-sm);
+          background: var(--surface-bg);
+          border: 1px solid var(--surface-border);
+          color: var(--text-primary);
           font-weight: 700;
           font-size: 1.25rem;
           flex-shrink: 0;
@@ -385,7 +365,7 @@ export default function LandingPage() {
           margin: 0 0 0.5rem;
           font-size: 1.125rem;
           font-weight: 600;
-          font-family: 'Georgia', serif;
+          font-family: var(--font-heading);
         }
 
         .step-content p {
@@ -413,7 +393,6 @@ export default function LandingPage() {
 
         .social-proof-section {
           padding: 6rem 2rem;
-          background: linear-gradient(180deg, transparent, rgba(200, 90, 58, 0.02));
         }
 
         .stats-grid {
@@ -433,8 +412,9 @@ export default function LandingPage() {
 
         .stat-number {
           font-size: clamp(2rem, 5vw, 3rem);
-          font-weight: 800;
-          color: var(--accent-primary);
+          font-weight: 700;
+          font-family: var(--font-heading);
+          color: var(--text-primary);
         }
 
         .stat-label {
@@ -459,17 +439,16 @@ export default function LandingPage() {
         .testimonial-card {
           padding: 2rem;
           border-radius: var(--radius-md);
-          border: 1px solid rgba(200, 90, 58, 0.2);
-          background: rgba(250, 248, 245, 0.7);
+          border: 1px solid var(--surface-border);
+          background: var(--surface-bg);
           display: flex;
           flex-direction: column;
           gap: 1.5rem;
-          transition: all var(--transition-base);
+          transition: border-color var(--transition-fast);
         }
 
         .testimonial-card:hover {
-          border-color: var(--accent-primary);
-          transform: translateY(-2px);
+          border-color: var(--surface-border-strong);
         }
 
         .testimonial-quote {
@@ -519,31 +498,30 @@ export default function LandingPage() {
         .pricing-card {
           padding: 2.5rem;
           border-radius: var(--radius-md);
-          border: 1px solid rgba(200, 90, 58, 0.2);
-          background: rgba(250, 248, 245, 0.7);
+          border: 1px solid var(--surface-border);
+          background: var(--surface-bg);
           display: flex;
           flex-direction: column;
           gap: 1.5rem;
-          transition: all var(--transition-base);
+          transition: border-color var(--transition-fast);
           position: relative;
         }
 
         .pricing-card.highlight {
           border-color: var(--accent-primary);
-          background: rgba(200, 90, 58, 0.08);
-          transform: scale(1.02);
+          background: var(--surface-bg);
         }
 
         .pricing-card:hover {
-          transform: translateY(-4px);
+          border-color: var(--surface-border-strong);
         }
 
         .pricing-card.highlight:hover {
-          transform: scale(1.04) translateY(-4px);
+          border-color: var(--accent-primary);
         }
 
         .pricing-header {
-          border-bottom: 1px solid rgba(200, 90, 58, 0.2);
+          border-bottom: 1px solid var(--surface-border);
           padding-bottom: 1.5rem;
         }
 
@@ -551,7 +529,7 @@ export default function LandingPage() {
           font-size: 1.5rem;
           font-weight: 700;
           margin: 0;
-          font-family: 'Georgia', serif;
+          font-family: var(--font-heading);
         }
 
         .pricing-description {
@@ -568,8 +546,9 @@ export default function LandingPage() {
 
         .price-amount {
           font-size: 2.5rem;
-          font-weight: 800;
-          color: var(--accent-primary);
+          font-weight: 700;
+          font-family: var(--font-heading);
+          color: var(--text-primary);
         }
 
         .price-period {
@@ -611,7 +590,6 @@ export default function LandingPage() {
 
         .faq-section {
           padding: 6rem 2rem;
-          background: linear-gradient(180deg, transparent, rgba(200, 90, 58, 0.02));
         }
 
         .faq-list {
@@ -623,16 +601,16 @@ export default function LandingPage() {
         }
 
         .faq-item {
-          border: 1px solid rgba(200, 90, 58, 0.2);
-          border-radius: var(--radius-sm);
-          background: rgba(250, 248, 245, 0.6);
-          transition: all var(--transition-base);
+          border: 1px solid var(--surface-border);
+          border-radius: var(--radius-md);
+          background: var(--surface-bg);
+          transition: border-color var(--transition-fast);
           overflow: hidden;
         }
 
         .faq-item.open {
           border-color: var(--accent-primary);
-          background: rgba(200, 90, 58, 0.08);
+          background: var(--surface-bg);
         }
 
         .faq-question {
@@ -696,8 +674,8 @@ export default function LandingPage() {
           margin: 0 auto;
           padding: 3rem;
           border-radius: var(--radius-md);
-          border: 1px solid rgba(200, 90, 58, 0.2);
-          background: linear-gradient(135deg, rgba(200, 90, 58, 0.08), rgba(212, 165, 116, 0.05));
+          border: 1px solid var(--surface-border);
+          background: var(--surface-bg);
           text-align: center;
           display: flex;
           flex-direction: column;
@@ -709,7 +687,7 @@ export default function LandingPage() {
           font-weight: 800;
           margin: 0;
           letter-spacing: -0.02em;
-          font-family: 'Georgia', serif;
+          font-family: var(--font-heading);
         }
 
         .cta-subtitle {
@@ -738,8 +716,8 @@ export default function LandingPage() {
 
         .footer-section {
           padding: 4rem 2rem 2rem;
-          border-top: 1px solid rgba(200, 90, 58, 0.15);
-          background: rgba(200, 90, 58, 0.04);
+          border-top: 1px solid var(--surface-border);
+          background: var(--bg-primary);
           color: var(--text-secondary);
         }
 
@@ -762,7 +740,7 @@ export default function LandingPage() {
           font-weight: 700;
           color: var(--accent-primary);
           margin: 0;
-          font-family: 'Georgia', serif;
+          font-family: var(--font-heading);
         }
 
         .footer-description {
@@ -820,7 +798,7 @@ export default function LandingPage() {
 
         .footer-divider {
           height: 1px;
-          background: rgba(200, 90, 58, 0.15);
+          background: var(--surface-border);
           margin: 2rem auto;
           max-width: 1200px;
         }
@@ -886,16 +864,8 @@ export default function LandingPage() {
            LIGHT THEME OVERRIDES
            ======================================== */
 
-        .light .landing-nav {
-          background: rgba(245, 241, 237, 0.9);
-          backdrop-filter: blur(10px);
-          transition: all var(--transition-base);
-          position: relative;
-        }
-
         .step-card:hover {
-          border-color: var(--accent-primary);
-          transform: scale(1.05);
+          border-color: var(--surface-border-strong);
         }
 
         .step-icon {
@@ -911,14 +881,15 @@ export default function LandingPage() {
           transform: translateX(-50%);
           width: 2.5rem;
           height: 2.5rem;
-          background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+          background: var(--surface-bg);
+          border: 1px solid var(--surface-border);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-weight: 800;
+          font-weight: 700;
           font-size: 1.25rem;
-          color: white;
+          color: var(--text-primary);
         }
 
         .step-title {
@@ -951,7 +922,6 @@ export default function LandingPage() {
 
         .social-proof-section {
           padding: 6rem 2rem;
-          background: linear-gradient(180deg, transparent, rgba(200, 90, 58, 0.02));
         }
 
         .stats-grid {
@@ -971,8 +941,9 @@ export default function LandingPage() {
 
         .stat-number {
           font-size: clamp(2rem, 5vw, 3rem);
-          font-weight: 800;
-          color: var(--accent-primary);
+          font-weight: 700;
+          font-family: var(--font-heading);
+          color: var(--text-primary);
         }
 
         .stat-label {
@@ -997,17 +968,16 @@ export default function LandingPage() {
         .testimonial-card {
           padding: 2rem;
           border-radius: var(--radius-md);
-          border: 1px solid rgba(200, 90, 58, 0.2);
-          background: rgba(250, 248, 245, 0.7);
+          border: 1px solid var(--surface-border);
+          background: var(--surface-bg);
           display: flex;
           flex-direction: column;
           gap: 1.5rem;
-          transition: all var(--transition-base);
+          transition: border-color var(--transition-fast);
         }
 
         .testimonial-card:hover {
-          border-color: var(--accent-primary);
-          transform: translateY(-2px);
+          border-color: var(--surface-border-strong);
         }
 
         .testimonial-quote {
@@ -1057,31 +1027,30 @@ export default function LandingPage() {
         .pricing-card {
           padding: 2.5rem;
           border-radius: var(--radius-md);
-          border: 1px solid rgba(200, 90, 58, 0.2);
-          background: rgba(250, 248, 245, 0.7);
+          border: 1px solid var(--surface-border);
+          background: var(--surface-bg);
           display: flex;
           flex-direction: column;
           gap: 1.5rem;
-          transition: all var(--transition-base);
+          transition: border-color var(--transition-fast);
           position: relative;
         }
 
         .pricing-card.highlight {
           border-color: var(--accent-primary);
-          background: rgba(200, 90, 58, 0.08);
-          transform: scale(1.02);
+          background: var(--surface-bg);
         }
 
         .pricing-card:hover {
-          transform: translateY(-4px);
+          border-color: var(--surface-border-strong);
         }
 
         .pricing-card.highlight:hover {
-          transform: scale(1.04) translateY(-4px);
+          border-color: var(--accent-primary);
         }
 
         .pricing-header {
-          border-bottom: 1px solid rgba(200, 90, 58, 0.2);
+          border-bottom: 1px solid var(--surface-border);
           padding-bottom: 1.5rem;
         }
 
@@ -1089,7 +1058,7 @@ export default function LandingPage() {
           font-size: 1.5rem;
           font-weight: 700;
           margin: 0;
-          font-family: 'Georgia', serif;
+          font-family: var(--font-heading);
         }
 
         .pricing-description {
@@ -1106,8 +1075,9 @@ export default function LandingPage() {
 
         .price-amount {
           font-size: 2.5rem;
-          font-weight: 800;
-          color: var(--accent-primary);
+          font-weight: 700;
+          font-family: var(--font-heading);
+          color: var(--text-primary);
         }
 
         .price-period {
@@ -1149,7 +1119,6 @@ export default function LandingPage() {
 
         .faq-section {
           padding: 6rem 2rem;
-          background: linear-gradient(180deg, transparent, rgba(200, 90, 58, 0.02));
         }
 
         .faq-list {
@@ -1161,16 +1130,16 @@ export default function LandingPage() {
         }
 
         .faq-item {
-          border: 1px solid rgba(200, 90, 58, 0.2);
-          border-radius: var(--radius-sm);
-          background: rgba(250, 248, 245, 0.6);
-          transition: all var(--transition-base);
+          border: 1px solid var(--surface-border);
+          border-radius: var(--radius-md);
+          background: var(--surface-bg);
+          transition: border-color var(--transition-fast);
           overflow: hidden;
         }
 
         .faq-item.open {
           border-color: var(--accent-primary);
-          background: rgba(200, 90, 58, 0.08);
+          background: var(--surface-bg);
         }
 
         .faq-question {
@@ -1234,8 +1203,8 @@ export default function LandingPage() {
           margin: 0 auto;
           padding: 3rem;
           border-radius: var(--radius-md);
-          border: 1px solid rgba(200, 90, 58, 0.2);
-          background: linear-gradient(135deg, rgba(200, 90, 58, 0.08), rgba(212, 165, 116, 0.05));
+          border: 1px solid var(--surface-border);
+          background: var(--surface-bg);
           text-align: center;
           display: flex;
           flex-direction: column;
@@ -1247,7 +1216,7 @@ export default function LandingPage() {
           font-weight: 800;
           margin: 0;
           letter-spacing: -0.02em;
-          font-family: 'Georgia', serif;
+          font-family: var(--font-heading);
         }
 
         .cta-subtitle {
@@ -1276,8 +1245,8 @@ export default function LandingPage() {
 
         .footer-section {
           padding: 4rem 2rem 2rem;
-          border-top: 1px solid rgba(200, 90, 58, 0.15);
-          background: rgba(200, 90, 58, 0.04);
+          border-top: 1px solid var(--surface-border);
+          background: var(--bg-primary);
           color: var(--text-secondary);
         }
 
@@ -1300,7 +1269,7 @@ export default function LandingPage() {
           font-weight: 700;
           color: var(--accent-primary);
           margin: 0;
-          font-family: 'Georgia', serif;
+          font-family: var(--font-heading);
         }
 
         .footer-description {
@@ -1358,7 +1327,7 @@ export default function LandingPage() {
 
         .footer-divider {
           height: 1px;
-          background: rgba(200, 90, 58, 0.15);
+          background: var(--surface-border);
           margin: 2rem auto;
           max-width: 1200px;
         }
@@ -1424,31 +1393,6 @@ export default function LandingPage() {
            LIGHT THEME OVERRIDES
            ======================================== */
 
-        .light .landing-nav {
-          background: rgba(245, 241, 237, 0.9);
-          border-color: rgba(0, 0, 0, 0.1);
-        }
-
-        .light .feature-card,
-        .light .testimonial-card,
-        .light .step-card,
-        .light .faq-item,
-        .light .mock-card {
-          background: rgba(245, 241, 237, 0.9);
-          border-color: rgba(0, 0, 0, 0.1);
-        }
-
-        .light .pricing-card {
-          background: rgba(245, 241, 237, 0.95);
-        }
-
-        .light .pricing-card.highlight {
-          background: rgba(99, 102, 241, 0.1);
-        }
-
-        .light .cta-container {
-          background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.05));
-        }
       `}</style>
     </div>
   );
