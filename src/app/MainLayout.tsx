@@ -4,12 +4,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      {/* Animated Mesh Background */}
-      <div className="mesh-background">
-        <div className="mesh-blob"></div>
-      </div>
-      
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <div className="app-layout">
         <NavBar />
         <main className="container animate-fade-in">
