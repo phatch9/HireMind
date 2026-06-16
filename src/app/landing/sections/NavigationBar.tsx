@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function NavigationBar() {
   return (
-    <nav className="landing-nav glass-card">
+    <nav className="landing-nav">
       <Link to="/" className="logo">
         <h1>HireMind</h1>
       </Link>
