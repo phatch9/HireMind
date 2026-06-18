@@ -229,7 +229,7 @@ export default function UpcomingReminders() {
                     display: flex;
                     gap: var(--spacing-sm);
                     padding: var(--spacing-md);
-                    background: rgba(255, 255, 255, 0.03);
+                    background: rgba(200, 90, 58, 0.03);
                     border-radius: var(--radius-lg);
                     border: 1px solid transparent;
                     transition: all var(--transition-base);
@@ -238,7 +238,7 @@ export default function UpcomingReminders() {
                 }
 
                 .reminder-item:hover {
-                    background: rgba(255, 255, 255, 0.06);
+                    background: rgba(200, 90, 58, 0.06);
                     border-color: var(--glass-border);
                     transform: translateX(4px);
                 }
