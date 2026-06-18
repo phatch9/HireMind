@@ -14,6 +14,7 @@ const CompaniesPage = React.lazy(() => import('./app/companies/CompaniesLayout.t
 const AnalyticsPage = React.lazy(() => import('./app/analytics/Analytics.tsx'));
 const RemindersPage = React.lazy(() => import('./app/reminders/Reminder.tsx'));
 const AtsPage = React.lazy(() => import('./app/ATS/LayoutATS.tsx'));
+const PlannerPage = React.lazy(() => import('./app/planner/PlannerPage.tsx'));
 
 function ProtectedRoute() {
     const { user, loading } = useAuth();
@@ -69,6 +70,7 @@ function AppRoutes() {
                     <Route path="/auth/login" element={<AuthForm defaultIsSignUp={false} />} />
                     <Route path="/auth/register" element={<AuthForm defaultIsSignUp={true} />} />
                     <Route path="/auth/callback" element={<AuthCallbackPage />} />
+                    <Route path="/planner" element={<PlannerPage />} />
                 </Route>
 
                 {/* Protected Routes */}

@@ -28,7 +28,7 @@ export default function NavBar() {
     return (
         <>
             <DropdownStyles />
-            <nav className="navbar glass-card">
+            <nav className="navbar">
                 <div className="navbar-container">
                     <div className="navbar-logo">
                         <Link to="/">
@@ -124,89 +124,6 @@ export default function NavBar() {
                     </div>
                 </div>
 
-                <style>{`
-                    .navbar {
-                        position: sticky;
-                        top: var(--spacing-md);
-                        margin: 0 var(--spacing-md) var(--spacing-xl);
-                        padding: 0.75rem var(--spacing-lg);
-                        z-index: var(--z-sticky);
-                    }
-
-                    .navbar-container {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                    }
-
-                    .navbar-logo h1 {
-                        font-size: 1.5rem;
-                        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        margin: 0;
-                    }
-
-                    .navbar-links {
-                        display: flex;
-                        gap: var(--spacing-lg);
-                    }
-
-                    .nav-link {
-                        color: var(--text-secondary);
-                        font-weight: 500;
-                        font-size: 0.9rem;
-                        transition: color var(--transition-fast);
-                        position: relative;
-                    }
-
-                    .nav-link:hover {
-                        color: var(--text-primary);
-                    }
-
-                    .nav-link.active {
-                        color: var(--text-primary);
-                    }
-
-                    .nav-link.active::after {
-                        content: '';
-                        position: absolute;
-                        bottom: -4px;
-                        left: 0;
-                        right: 0;
-                        height: 2px;
-                        background: var(--accent-primary);
-                        border-radius: 2px;
-                    }
-
-                    .navbar-actions {
-                        display: flex;
-                        align-items: center;
-                        gap: var(--spacing-sm);
-                    }
-
-                    .btn-icon {
-                        padding: var(--spacing-sm);
-                        border-radius: 50%;
-                    }
-
-                    .hidden-mobile {
-                        display: flex;
-                    }
-
-                    .visible-mobile {
-                        display: none;
-                    }
-
-                    @media (max-width: 768px) {
-                        .hidden-mobile {
-                            display: none;
-                        }
-                        .visible-mobile {
-                            display: block;
-                        }
-                    }
-                `}</style>
             </nav>
         </>
     );

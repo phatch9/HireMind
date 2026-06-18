@@ -468,9 +468,10 @@ export default function RemindersPage() {
                 }
 
                 .rem-tab.active {
-                    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-                    color: white;
-                    font-weight: 600;
+                    background: var(--surface-bg);
+                    color: var(--accent-primary);
+                    font-weight: 500;
+                    border: 1px solid var(--accent-primary);
                 }
 
                 .tab-count {
