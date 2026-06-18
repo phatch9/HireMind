@@ -54,7 +54,7 @@ export default function FooterSection() {
 
         <div className="footer-bottom">
           <p className="footer-copyright">
-            © {currentYear} HireMind. All rights reserved. | Made with 💜 by the HireMind team.
+            © {currentYear} HireMind. All rights reserved. | HireMind team.
           </p>
         </div>
       </div>
