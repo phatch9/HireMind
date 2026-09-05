@@ -30,17 +30,17 @@ export default function LayoutATS() {
         <div className="ats-container">
             <div className="ats-header">
                 <h1>AI Resume Optimizer</h1>
-                <p className="text-secondary">Scan your resume against any job description to find keyword gaps and get tailoring advice.</p>
+                <p className="text-secondary">Scanning your resume with any job description to find keyword gaps and get tailoring advice.</p>
             </div>
 
             <div className="ats-tabs glass-card">
-                <button 
+                <button
                     className={`ats-tab ${activeTab === 'analyzer' ? 'active' : ''}`}
                     onClick={() => setActiveTab('analyzer')}
                 >
                     Analyzer
                 </button>
-                <button 
+                <button
                     className={`ats-tab ${activeTab === 'history' ? 'active' : ''}`}
                     onClick={() => setActiveTab('history')}
                 >
@@ -54,7 +54,7 @@ export default function LayoutATS() {
                         <div className="analyzer-form glass-card">
                             <div className="form-section">
                                 <label className="form-label">1. Upload Resume (PDF)</label>
-                                <ResumeDropzone 
+                                <ResumeDropzone
                                     onFileSelect={setResumeFile}
                                     selectedFile={resumeFile}
                                 />
@@ -62,7 +62,7 @@ export default function LayoutATS() {
 
                             <div className="form-section">
                                 <label className="form-label">2. Paste Job Description</label>
-                                <textarea 
+                                <textarea
                                     className="jd-textarea glass"
                                     placeholder="Paste the full job description text here..."
                                     value={jobDescription}
@@ -74,7 +74,7 @@ export default function LayoutATS() {
                             {error && <div className="error-box">{error}</div>}
 
                             <div className="form-actions">
-                                <button 
+                                <button
                                     className="btn btn-primary btn-lg"
                                     disabled={!resumeFile || !jobDescription.trim() || loading}
                                     onClick={handleAnalyze}
