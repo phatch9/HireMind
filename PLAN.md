@@ -1,4 +1,4 @@
-# PLAN.md: AI Resume Optimizer & Application Tracker Execution Blueprint
+# PLAN: AI Resume Optimizer & Application Tracker Execution Blueprint
 
 ## System Architecture Target
 A robust SaaS application architecture built to demonstrate high technical competency to recruiters.
@@ -32,7 +32,7 @@ To ensure production-grade maintainability, the Code Agent must adhere to these 
 
 ### Phase 1: Persistence Layer & Supabase Schema Implementation
 - [ ] Create `profiles` schema linked cleanly to Supabase Auth tables.
-- [ ] Create `applications` tracker schema containing job info status tracking states: `('Wishlist', 'Applied', 'Interviewing', 'Offer', 'Rejected')`.
+- [ ] Create `applications` tracker schema containing job info and status tracking states: `('Wishlist', 'Applied', 'Interviewing', 'Offer', 'Rejected')`.
 - [ ] Create `ats_evaluations` table for persisting historical keyword analysis reports.
 - [ ] Implement Row-Level Security policies to bind records exclusively to `auth.uid()`.
 
@@ -78,12 +78,12 @@ Re-read all criteria and confirm each item has been met.
 * Clean code, typed, strictly follows project conventions
 * Design looks like a heavily funded startup
 * Output passes a senior code review
-* Every pattern / env var / decision is documented
+* Every pattern / env var/decision is documented
 
 **— FINAL DELIVERABLE —**
 
 - Confirm each criterion is met
-- List of newly created / modified files
+- List of newly created/modified files
 - How to run / test / deploy
 - Evidence (screenshot · test output · URL)
 - Important decisions + things to know
