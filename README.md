@@ -18,7 +18,7 @@ Job seekers who juggle many roles at once and need:
 
 ---
 
-## What is shipped today
+## Features Overview
 
 These capabilities exist in the current codebase (React app + FastAPI analyzer + Supabase).
 
@@ -37,6 +37,79 @@ These capabilities exist in the current codebase (React app + FastAPI analyzer +
 
 **Not fully productized yet** (schema/UI hooks exist, or landing copy mentions them): paid billing, CSV/JSON export, in-app tailored-CV *generation*, job-board auto-import, team collaboration, and a complete document-vault UI (storage API is present in `src/lib/api/StorageAPI.ts`).
 
+---
+## Features and Routes
+| Route | Access | Purpose |
+|-------|--------|---------|
+| `/auth/login`, `/auth/register` | Public | Sign in / sign up (Google + email) |
+| `/auth/callback` | Public | OAuth return |
+| `/dashboard` | Auth | Stats, pipeline, search, reminders |
+| `/applications` | Auth | List, filter, add/edit, detail |
+| `/kanban` | Auth | Drag-and-drop pipeline |
+| `/companies` | Auth | Employer directory |
+| `/reminders` | Auth | Follow-ups and deadlines |
+| `/analytics` | Auth | Funnel and grade charts |
+| `/ats` | Auth | Resume vs JD analyzer + history |
+Unauthenticated visits to protected routes redirect to `/auth/login`. Signed-in users hitting public auth/landing are sent to `/dashboard`.
+
+### ATS Analyzer details
+- Resume: PDF, max 10 MB
+- Job description: at least 50 characters
+- Rate limit: 5 requests per minute per client IP
+- Response: `match_score`, `missing_keywords`, `present_keywords`, `recommendations`, `summary`, `model_used`, `evaluation_version`
+- API docs when the server is running: `/docs` and `/redoc`
+- Health: `GET /health`
+The Vite client currently calls `http://localhost:7000/analyze`. Start Uvicorn on **port 7000** so the UI and API match (the server comment in `server/main.py` mentions 8000 — use 7000 unless you change `src/lib/api/ats.ts`).
+---
+
+## Getting started
+### Prerequisites
+- Node.js 20+
+- Python 3.9+
+- A [Supabase](https://supabase.com) project (URL + anon key)
+- An OpenAI API key (ATS analyzer only)
+
+### 1. Frontend
+```bash
+git clone <repo-url>
+cd HireMind
+npm install
+cp .env.example .env
+```
+Set in `.env`:
+```
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+- Apply the database schema from `docs/DATABASE_SETUP.md` (SQL editor or Supabase CLI). You need at least `companies`, `applications`, `notes`, plus tables used by the app such as `reminders` and `ats_evaluations`, with RLS so each user only sees their rows.
+```bash
+npm run dev
+```
+[http://localhost:3000](http://localhost:3000)
+### 2. ATS API (optional, required for `/ats`)
+```bash
+cd server
+python3 -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env
+```
+Set `OPENAI_API_KEY` and include the Vite origin in CORS:
+```
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173
+OPENAI_MODEL=gpt-4o-mini
+```
+```bash
+uvicorn main:app --reload --port 7000
+```
+Confirm: [http://localhost:7000/health](http://localhost:7000/health)
+### 3. Typical usage after login
+1. Create a **company**, then an **application** (or add from Kanban).
+2. Move the card as the search progresses.
+3. Open the application for timeline, evaluation, and JD snapshot when those fields are populated.
+4. Add **reminders** for interviews and follow-ups.
+5. Use **Analytics** for conversion and grade mix.
+6. Use **ATS Analyzer** to compare a resume PDF to a pasted JD; switch to **History** for past runs.
 ---
 
 ## How the product works
@@ -59,7 +132,7 @@ Status-specific dates stay in sync: `applied_date`, `interview_date`, `offer_dat
 
 HireMind is a React/Vite job-application workspace backed by Supabase, with a separate FastAPI service for PDF resume/JD ATS analysis. Read `CLAUDE.md` before making changes; it is the repository's authoritative agent guidance and contains the full design-system and evaluation rules.
 
-## Build, test, and lint
+## Build, test
 
 Run frontend commands from the repository root:
 
@@ -78,40 +151,21 @@ npx playwright test tests/e2e/smoke.spec.ts -g "should load the landing page"
 Run backend commands from `server/`:
 
 ```bash
-python -m pytest
+cd server
+python -m pytest # Execute full pytest suite
 python -m pytest tests/test_pdf_parser.py::TestTruncateText::test_over_limit_is_truncated
 uvicorn main:app --reload --port 8000
 ```
 
 The FastAPI tests use an in-process ASGI client and mock OpenAI/PDF work, so they do not need a running server or a real OpenAI request. The frontend ATS client currently uses `http://localhost:7000`; use that port when locally exercising the ATS UI, or update the client/configuration consistently if changing the backend port. Backend settings are loaded from `server/.env`; frontend Supabase settings use `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
 
-## Architecture
 
-- `src/App.tsx` owns routing and auth boundaries. Public routes include the landing/auth/planner pages; application, Kanban, companies, analytics, reminders, and ATS routes render inside the authenticated `MainLayout`.
-- `src/hooks/` owns Supabase-backed fetching, mutations, auth state, optimistic updates, and realtime subscriptions. Components should call hooks rather than querying Supabase directly.
-- `src/lib/api/` contains the thin Supabase/API adapters; `src/lib/types.ts` is the shared domain model. Keep data access out of page and presentational components.
-- `src/components/` contains reusable UI and feature components; `src/app/` contains route-level pages. Routes are lazy-loaded in `App.tsx`.
-- Supabase is the system of record for auth, PostgreSQL data, realtime, and storage. SQL changes are tracked in `pipeline/migration/` and must preserve row-level security and user scoping.
-- The ATS path is separate from normal Supabase CRUD: `LayoutATS` -> `useAtsEvaluation` -> `src/lib/api/ATS.ts` -> FastAPI `POST /analyze`. The server extracts PDF text with PyMuPDF, validates structured Pydantic output, calls OpenAI, and returns the result; the hook then persists the report in `ats_evaluations`.
+## Code Base & Technical Standards
 
-## Domain invariants
+- Strict TypeScript Standard: noUnusedLocals and noUnusedParameters are strictly enforced. Explicit type signatures are mandatory. Do not use any, @ts-ignore, or @ts-expect-error. Use @/* alias imports for clean paths.
 
-- Application statuses are exactly `wishlist`, `applied`, `interview`, `offer`, and `rejected`. Moving a Kanban card through `useApplications.updateStatus` must update the matching status timestamp (`applied_date`, `interview_date`, `offer_date`, or `rejected_date`).
-- `src/lib/evaluation.ts` is the sole source of truth for AI job-fit scoring. Use `isValidJobEvaluation()` before persisting an evaluation and `deriveEvaluationFields()` to derive `fit_score`, `fit_grade`, `recommend_apply`, and the rubric version. Use `scoreToLetterGrade()` and `computeWeightedScore()` for display/calculation; do not duplicate thresholds.
-- The rubric is pinned at `EVALUATION_RUBRIC_VERSION = '2026.1'`, has ten weighted dimensions, and recommends applying at a score of 4.0 or higher. Do not change rubric dimensions or version without an intentional new rubric version.
-- Separate user-editable application fields (`ApplicationFormData`) from AI-owned pipeline fields (`ApplicationPipelineFields`). AI-owned fields include JD snapshot/hash/timestamp, evaluation and derived scores, tailored-CV metadata, and `recommend_apply`.
+- Data Access Patterns: All data operations must flow through app pages -> hooks -> lib/api/Supabase. Always destructure { data, error }, handle errors explicitly prior to data consumption, and ensure real-time socket subscriptions clear event listeners on unmount.
 
-## Code and styling conventions
+- Database & RLS Compliance: Never alter core database schemas without creating a corresponding SQL migration file in pipeline/migration/. All new tables must enforce multi-tenant isolation through explicit user_id Row Level Security constraints.
 
-- TypeScript is strict with `noUnusedLocals` and `noUnusedParameters`; avoid `any`, `@ts-ignore`, and `@ts-expect-error`. Component props use named interfaces. Use the `@/*` aliases configured in `tsconfig.json`/`vite.config.ts`.
-- Keep the layering `app` pages -> hooks -> `lib/api`/Supabase. Supabase calls should destructure `{ data, error }`, handle errors before using data, select explicit columns where practical, and keep realtime subscriptions in hooks with cleanup.
-- Use React 18 function components, top-level hooks, and existing optimistic/realtime patterns. Preserve the protected/public route behavior and auth state flow in `useAuth`.
-- Styling is vanilla CSS in `src/index.css` and feature stylesheets, not Tailwind. Use existing HSL design tokens, `.glass`/`.glass-card`, theme classes, and CSS classes rather than inline layout or new ad hoc colors. The project defaults to the existing glassmorphism/light-dark theme system.
-- Components are PascalCase, hooks/utilities are camelCase, hooks start with `use`, and constants use `UPPER_SNAKE_CASE`. Follow the import/type/component organization already used in nearby files.
-- Do not modify `src/lib/supabase.ts` casually; it is shared by the data layer. Do not add a Supabase table without a migration and corresponding database documentation/RLS considerations.
-
-## Database and integration boundaries
-
-Use the existing typed Supabase client from `src/lib/supabase.ts`. RLS is part of the security model, so preserve `user_id` ownership and application/company relationships in queries and migrations. The migration sequence in `pipeline/migration/` includes core tables, profile RLS, position support, and AI application columns.
-
-The FastAPI service exposes `/health` and `/analyze`; `/analyze` accepts a PDF and a job description, enforces the 10 MB PDF and minimum JD length limits, truncates inputs, rate-limits requests, and returns the typed ATS response. Keep request/response changes synchronized across `server/models/schemas.py`, `server/routers/analyze.py`, `src/lib/types.ts`, and `src/lib/api/ATS.ts`.
+- Styling & Design Tokens: Pure CSS architecture defined in src/index.css using HSL CSS variables, .glass-card primitives, and dynamic dark/light theme state machine toggles. Do not install or introduce Tailwind utility classes or inline color overrides.
