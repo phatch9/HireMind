@@ -128,10 +128,6 @@ Status-specific dates stay in sync: `applied_date`, `interview_date`, `offer_dat
 
 ---
 
-# Instructions
-
-HireMind is a React/Vite job-application workspace backed by Supabase, with a separate FastAPI service for PDF resume/JD ATS analysis. Read `CLAUDE.md` before making changes; it is the repository's authoritative agent guidance and contains the full design-system and evaluation rules.
-
 ## Build, test
 
 Run frontend commands from the repository root:
@@ -159,7 +155,28 @@ uvicorn main:app --reload --port 8000
 
 The FastAPI tests use an in-process ASGI client and mock OpenAI/PDF work, so they do not need a running server or a real OpenAI request. The frontend ATS client currently uses `http://localhost:7000`; use that port when locally exercising the ATS UI, or update the client/configuration consistently if changing the backend port. Backend settings are loaded from `server/.env`; frontend Supabase settings use `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
 
-
+## Project layout
+```
+HireMind/
+├── src/
+│   ├── app/                 # Pages: dashboard, kanban, applications, companies,
+│   │                        # analytics, reminders, ATS, landing, auth
+│   ├── components/          # Cards, forms, Kanban, ATS dropzone, modals, navbar
+│   ├── hooks/               # useAuth, useApplications, useCompanies, …
+│   └── lib/                 # evaluation.ts, types, constants, supabase, api/
+├── server/
+│   ├── main.py              # FastAPI app, CORS, health
+│   ├── routers/analyze.py   # POST /analyze
+│   ├── services/            # pdf_parser, openai_analyzer
+│   ├── models/schemas.py
+│   └── tests/
+├── docs/                    # Architecture, database, code standards, CI notes
+├── tests/e2e/               # Playwright smoke tests
+├── CLAUDE.md                # Agent/developer source of truth
+└── package.json
+```
+Diagrams and schema notes: [docs/SYSTEM_ARCHITECTURE.md](docs/SYSTEM_ARCHITECTURE.md), [docs/DATABASE_SETUP.md](docs/DATABASE_SETUP.md), [docs/code-standards.md](docs/code-standards.md).
+---
 ## Code Base & Technical Standards
 
 - Strict TypeScript Standard: noUnusedLocals and noUnusedParameters are strictly enforced. Explicit type signatures are mandatory. Do not use any, @ts-ignore, or @ts-expect-error. Use @/* alias imports for clean paths.
@@ -169,3 +186,13 @@ The FastAPI tests use an in-process ASGI client and mock OpenAI/PDF work, so the
 - Database & RLS Compliance: Never alter core database schemas without creating a corresponding SQL migration file in pipeline/migration/. All new tables must enforce multi-tenant isolation through explicit user_id Row Level Security constraints.
 
 - Styling & Design Tokens: Pure CSS architecture defined in src/index.css using HSL CSS variables, .glass-card primitives, and dynamic dark/light theme state machine toggles. Do not install or introduce Tailwind utility classes or inline color overrides.
+## Design notes
+- Tokens live in CSS custom properties (`--bg-primary`, `--accent-primary`, glass surfaces).  
+- Interactive controls use short hover/opacity transitions.  
+- Fit grades in the UI: A success, B blue, C warning, D/E error, F muted.
+---
+## Roadmap (next)
+From the product backlog: richer evaluation surfaces, JD snapshot polish, tailored-CV generation in-app, search/filter by grade and date, document vault UI, CSV/JSON export, and richer notes.
+---
+## License
+Private project (`package.json` `"private": true`). All rights reserved unless a license file is added
